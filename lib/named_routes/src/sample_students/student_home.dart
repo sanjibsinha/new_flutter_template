@@ -4,11 +4,13 @@ import '../models/dummy_students.dart';
 class StudentHome extends StatelessWidget {
   const StudentHome({Key? key}) : super(key: key);
 
+  static const routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Books'),
+        title: const Text('All Students'),
       ),
       body: GridView(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -59,20 +61,12 @@ class StudentLists extends StatelessWidget {
         margin: const EdgeInsets.all(
           10.0,
         ),
+        color: Colors.amberAccent,
         child: Text(
           name,
           style: const TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
-          ),
-        ),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.amberAccent,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
           ),
         ),
       ),
@@ -92,6 +86,8 @@ class StudentDetailPage extends StatelessWidget {
     required this.studentClass,
   }) : super(key: key);
 
+  static const routeName = '/student_details';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,30 +96,18 @@ class StudentDetailPage extends StatelessWidget {
         backgroundColor: Colors.redAccent,
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
             Container(
-              height: 400,
-              width: 400,
+              height: 100,
+              width: 100,
               margin: const EdgeInsets.all(
                 10.0,
               ),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.brown.shade100,
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                border: Border.all(
-                  width: 10,
-                  color: Colors.black,
-                ),
-              ),
+              color: Colors.amberAccent,
               child: Text(
-                '$name of Student',
+                'Student\'s name: $name',
                 style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -131,30 +115,18 @@ class StudentDetailPage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 10.0,
+              height: 5.0,
             ),
             Container(
-              height: 400,
-              width: 400,
+              height: 100,
+              width: 100,
               margin: const EdgeInsets.all(
                 10.0,
               ),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.blue.shade300,
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                border: Border.all(
-                  width: 10,
-                  color: Colors.black,
-                ),
-              ),
+              color: Colors.redAccent,
               child: Text(
-                '$name studies at $studentClass',
+                '$name studies in class $studentClass',
                 style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
